@@ -1,16 +1,16 @@
 class User
-  attr_accessor :memories, :first_name, :last_name, :email, :password
+  attr_accessor :stories, :first_name, :last_name, :email, :password
 
   def initialize(first_name, last_name, email, password)
-    @memories = []
+    @stories = []
     @first_name = first_name
     @last_name = last_name
     @email = email
     @password = password
   end
 
-  def has_memories?
-    @memories
+  def has_stories?
+    @stories
   end
 
 end

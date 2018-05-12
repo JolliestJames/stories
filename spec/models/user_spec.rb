@@ -5,10 +5,10 @@ RSpec.describe User do
   let(:story) { "This is a story" }
 
   describe "initialization" do
-    specify { expect(user.first_name).not_to be_nil }
-    specify { expect(user.last_name).not_to be_nil }
-    specify { expect(user.email).not_to be_nil }
-    specify { expect(user.password).not_to be_nil }
+    specify { expect(user.first_name).to eq("Fake_first") }
+    specify { expect(user.last_name).to eq("Fake_last") }
+    specify { expect(user.email).to eq("fake@fake.com") }
+    specify { expect(user.password).to eq("fake_password") }
   end
 
   it "knows a user can add a story" do

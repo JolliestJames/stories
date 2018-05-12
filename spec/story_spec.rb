@@ -18,7 +18,7 @@ RSpec.describe Story do
 
   it "allows us to add a memory" do
     story.add_memory(memory)
-    expect(story.memories).not_to be_nil
+    expect(story.memories).not_to be_empty
   end
 
 end

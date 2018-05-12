@@ -8,4 +8,8 @@ class Memory
     @description = description
   end
 
+  def update_description(description)
+    @description = description
+  end
+
 end

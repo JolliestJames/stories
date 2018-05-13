@@ -1,5 +1,5 @@
 class Story < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
   has_many :memories, dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true

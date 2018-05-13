@@ -6,16 +6,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
   
-  # def initialize(first_name, last_name, email, password)
-  #   @stories = []
-  #   @first_name = first_name
-  #   @last_name = last_name
-  #   @email = email
-  #   @password = password
+  # def has_stories?
+  #   self.stories
   # end
-
-  def has_stories?
-    self.stories
-  end
 
 end

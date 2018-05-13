@@ -5,9 +5,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true
   validates :password, presence: true
-  
-  # def has_stories?
-  #   self.stories
-  # end
+
+  def add_story(story)
+    self.stories << story
+  end
 
 end

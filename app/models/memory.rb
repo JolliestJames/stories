@@ -1,15 +1,12 @@
-class Memory
-  attr_accessor :name, :date, :image, :description
-
-  def initialize(name, date, image, description)
-    @name = name
-    @date = date
-    @image = image
-    @description = description
-  end
-
+class Memory < ApplicationRecord
+  belongs_to :user
+  belongs_to :story
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :image, presence: true
+  
   def update_description(description)
-    @description = description
+    self.description = description
   end
 
 end

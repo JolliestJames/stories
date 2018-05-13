@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "adding a user", type: :system do
   it "allows a user to sign up" do
-    visit sign_up_user_path
+    visit new_user_path
     fill_in "First name", with: "First"
     fill_in "Last name", with: "Last"
     fill_in "Email", with: "Fake@fake.com"

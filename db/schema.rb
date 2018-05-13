@@ -10,6 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_05_13_165615) do
+
+  create_table "memories", force: :cascade do |t|
+    t.integer "story_id"
+    t.integer "user_id"
+    t.string "name"
+    t.date "date"
+    t.string "image"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_memories_on_story_id"
+    t.index ["user_id"], name: "index_memories_on_user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

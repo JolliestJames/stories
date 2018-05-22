@@ -11,7 +11,13 @@ class UsersController < ApplicationController
       email: params[:user][:email],
       password: params[:user][:password],
     )
-    @new_user.save
+    result = @new_user.save
+    if result
+      redirect_to users_path
+    else
+      @user = @new_user
+      render :new
+    end
   end
 
   def index

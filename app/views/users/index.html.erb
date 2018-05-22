@@ -11,11 +11,11 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
+      <tr class="user-row" id="<%= dom_id(user) %>">
+        <td class="first_name"><%= user.first_name %></td>
+        <td class="last_name"><%= user.last_name %></td>
+        <td class="email"><%= user.email %></td>
+        <td class="password"><%= user.password %></td>
       </tr>
     <% end %>
   </tbody>

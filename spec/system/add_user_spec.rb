@@ -7,7 +7,7 @@ RSpec.describe "adding a user", type: :system do
     fill_in "Last name", with: "Last"
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
-    click_on("Sign Up")
+    click_on("Create User")
     visit users_path
     expect(page).to have_content("First")
     expect(page).to have_content("Last")

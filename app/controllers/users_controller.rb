@@ -12,9 +12,7 @@ class UsersController < ApplicationController
       password: params[:user][:password],
     )
     result = @new_user.save
-    if result
-      redirect_to users_path
-    else
+    unless result
       @user = @new_user
       render :new
     end

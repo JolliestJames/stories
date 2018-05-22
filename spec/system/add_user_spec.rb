@@ -8,6 +8,7 @@ RSpec.describe "adding a user", type: :system do
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
     click_on("Create User")
+    visit users_path
     @user = User.find_by(first_name: "First")
     expect(page).to have_selector(
       "#user_#{@user.id} .first_name", text: "First")

@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <td>First Name</td>
-      <td>Last Name</td>
+      <td>User Name</td>
       <td>Email</td>
       <td>Password</td>
     </tr>
@@ -14,8 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr class="user-row" id="<%= dom_id(user) %>">
-        <td class="first_name"><%= user.first_name %></td>
-        <td class="last_name"><%= user.last_name %></td>
+        <td class="user_name"><%= user.user_name %></td>
         <td class="email"><%= user.email %></td>
         <td class="password"><%= user.password %></td>
       </tr>

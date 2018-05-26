@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_13_165615) do
+ActiveRecord::Schema.define(version: 2018_05_26_212852) do
 
   create_table "memories", force: :cascade do |t|
     t.integer "story_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_05_13_165615) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_name"
   end
 
 end

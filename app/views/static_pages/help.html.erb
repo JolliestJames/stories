@@ -1,2 +1,13 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<% provide(:title, "Help") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Stories</title>
+  </head>
+  <body>    
+    <h1>Help</h1>
+    <p>
+      There isn't much here yet - eventually I'll add a FAQ section.
+    </p>
+  </body>
+</html>

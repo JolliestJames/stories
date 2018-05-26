@@ -1,7 +1,11 @@
 <% provide(:title, "Home") %>
 
-<h1>Stories</h1>
+<div class="center jumbotron">
+  <h1>Stories</h1>
 
-<p>
-  What's your story?
-</p>
+  <h2>
+    What's your story?
+  </h2>
+
+  <%= link_to "Sign up to add your stories!", '/signup', class: "btn btn-lg btn-primary" %>
+</div>

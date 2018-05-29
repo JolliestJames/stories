@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe User do
   let(:user) { User.new(
-    user_name: "Fake_user_name",
+    username: "Fake_username",
     first_name: "Fake_first", 
     last_name: "Fake_last",
     email: "fake@fake.com", 
@@ -13,7 +13,7 @@ RSpec.describe User do
     user_id: user.id) }
 
   describe "initialization" do
-    specify { expect(user.user_name).to eq("Fake_user_name")}
+    specify { expect(user.username).to eq("Fake_username")}
     specify { expect(user.first_name).to eq("Fake_first") }
     specify { expect(user.last_name).to eq("Fake_last") }
     specify { expect(user.email).to eq("fake@fake.com") }

@@ -40,15 +40,24 @@ RSpec.describe User do
     end
 
     it "should validate username length" do
-      expect(user).to validate_length_of(:username)
+      expect(user).to validate_length_of(:username).
+        is_at_least(1).
+        is_at_most(50).
+        on(:create)
     end
 
     it "should validate email length" do
-      expect(user).to validate_length_of(:email)
+      expect(user).to validate_length_of(:email).
+        is_at_least(1).
+        is_at_most(255).
+        on(:create)
     end
 
     it "should validate password length" do
-      expect(user).to validate_length_of(:password)
+      expect(user).to validate_length_of(:password).
+      is_at_least(7).
+      is_at_most(255).
+      on(:create)
     end
 
     it "should allow a valid email format" do
@@ -57,6 +66,14 @@ RSpec.describe User do
     
     it "should not allow an invalid email format" do
       expect(user).not_to allow_value("fake").for(:email)
+    end
+
+    it "should validate username uniqueness" do
+      expect(user).to validate_uniqueness_of(:username).case_insensitive
+    end
+
+    it "should validate email uniqueness" do
+      expect(user).to validate_uniqueness_of(:email).case_insensitive
     end
 
   end

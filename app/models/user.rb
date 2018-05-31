@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates_length_of :email, minimum: 1, maximum: 255, on: :create
   validates_length_of :password, minimum: 7, maximum: 255, on: :create
   validates :email, format: { with: VALID_EMAIL_REGEX }
-  validates :username, :email, uniqueness: { case_sensitive: false }
+  validates_uniqueness_of :username, :email, case_sensitive: false
 
   def add_story(story)
     self.stories << story

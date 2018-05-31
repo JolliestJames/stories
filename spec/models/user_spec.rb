@@ -25,4 +25,40 @@ RSpec.describe User do
     expect(user.stories).not_to be_empty
   end
 
+  describe "validations" do
+
+    it "should validate username presence" do
+      expect(user).to validate_presence_of(:username)
+    end
+
+    it "should validate email presence" do
+      expect(user).to validate_presence_of(:email)
+    end
+
+    it "should validate password presence" do
+      expect(user).to validate_presence_of(:password)
+    end
+
+    it "should validate username length" do
+      expect(user).to validate_length_of(:username)
+    end
+
+    it "should validate email length" do
+      expect(user).to validate_length_of(:email)
+    end
+
+    it "should validate password length" do
+      expect(user).to validate_length_of(:password)
+    end
+
+    it "should allow a valid email format" do
+      expect(user).to allow_value("fake@fake.com").for(:email)
+    end
+    
+    it "should not allow an invalid email format" do
+      expect(user).not_to allow_value("fake").for(:email)
+    end
+
+  end
+
 end

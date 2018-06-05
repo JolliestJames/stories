@@ -2,18 +2,18 @@ require "rails_helper"
 
 RSpec.describe Story do
   let(:story) { Story.new(
-    name: "Mr. and Mrs. Martinez",
-    description: "My favorite story.") }
+    name: "Fake story name",
+    description: "Fake story description") }
   
   let(:memory) { Memory.new(
-    name: "The day I met her",
+    name: "Fake memory name",
     date: Date.new(2017, 8, 13),
-    image: "link_to_picture",
-    description: "An impromptu breakfast leads to me meeting my future wife.") }
+    image: "Fake_picture",
+    description: "Fake memory description") }
 
   describe "initialization" do
-    specify { expect(story.name).to eq("Mr. and Mrs. Martinez") }
-    specify { expect(story.description).to eq("My favorite story.")}
+    specify { expect(story.name).to eq("Fake story name") }
+    specify { expect(story.description).to eq("Fake story description")}
   end
 
   it "allows a story to add a memory" do

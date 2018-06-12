@@ -1,11 +1,8 @@
 require "rails_helper"
 
 RSpec.describe User do
-  let(:user) { create(:user) }
-  let(:story) { Story.new(
-    name: "Mr. and Mrs. Martinez",
-    description: "My favorite story.",
-    user_id: user.id) }
+  let(:user) { build(:user) }
+  let(:story) { build(:story) }
 
   describe "initialization" do
     specify { expect(user.username).to eq("Fake_username")}

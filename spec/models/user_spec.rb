@@ -1,12 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User do
-  let(:user) { User.new(
-    username: "Fake_username",
-    first_name: "Fake_first", 
-    last_name: "Fake_last",
-    email: "fake@fake.com", 
-    password: "fake_password") }
+  let(:user) { create(:user) }
   let(:story) { Story.new(
     name: "Mr. and Mrs. Martinez",
     description: "My favorite story.",

@@ -11,7 +11,7 @@ RSpec.describe "adding a user", type: :system do
     @user = User.find_by(username: "FakeUser")
     expect(page).to have_selector(
       "#user_#{@user.id} .username", text: "FakeUser")
-    expect(page).to have_content("Fake@fake.com")
+    expect(page).to have_content("fake@fake.com")
     expect(page).to have_content("Password")
   end
 

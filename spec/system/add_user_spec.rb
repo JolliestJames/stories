@@ -6,7 +6,7 @@ RSpec.describe "adding a user", type: :system do
     fill_in "Username", with: "FakeUser"
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
-    click_on("Create User")
+    click_on("Sign up")
     visit users_path
     @user = User.find_by(username: "FakeUser")
     expect(page).to have_selector(

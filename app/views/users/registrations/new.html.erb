@@ -1,3 +1,5 @@
+<% provide(:title, "Register") %>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,12 +9,12 @@
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username", :required => true %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
@@ -20,15 +22,16 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", :required => true %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", :required => true %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  <br>
 <% end %>
 
 <%= render "users/shared/links" %>

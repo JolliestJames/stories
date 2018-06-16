@@ -11,30 +11,30 @@ RSpec.describe "adding a user", type: :system do
     expect(page).to have_content("Welcome! You have signed up successfully.")
   end
 
-  xit "does not allow a user to sign up without a user name" do
-    visit signup_path
+  it "does not allow a user to sign up without a user name" do
+    visit new_user_registration_path
     fill_in "Username", with: ""
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
-    click_on("Create User")
+    click_on("Sign up")
     expect(page).to have_selector(".new_user")
   end
 
-  xit "does not allow a user to sign up without an email address" do
-    visit signup_path
+  it "does not allow a user to sign up without an email address" do
+    visit new_user_registration_path
     fill_in "Username", with: "FakeUser"
     fill_in "Email", with: ""
     fill_in "Password", with: "Password"
-    click_on("Create User")
+    click_on("Sign up")
     expect(page).to have_selector(".new_user")
   end
 
-  xit "does not allow a user to sign up without a password" do
-    visit signup_path
+  it "does not allow a user to sign up without a password" do
+    visit new_user_registration_path
     fill_in "Username", with: "FakeUser"
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: ""
-    click_on("Create User")
+    click_on("Sign up")
     expect(page).to have_selector(".new_user")
   end
 

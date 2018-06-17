@@ -22,7 +22,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
       click_on("Sign up")
-      expect(page).to have_selector(".new_user")
+      expect(page).to have_content("Username has already been taken")
     end
 
     it "does not allow a user sign up with a non-unique email" do
@@ -32,7 +32,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
       click_on("Sign up")
-      expect(page).to have_selector(".new_user")
+      expect(page).to have_content("Email has already been taken")
     end
 
     it "does not allow a user to sign up without a username" do

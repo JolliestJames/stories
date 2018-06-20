@@ -2,14 +2,16 @@ require "rails_helper"
 
 RSpec.describe "adding a user", type: :system do
 
-  it "allows a user to sign up" do
+  it "allows a user to sign up and confirm their email" do
     visit new_user_registration_path
     fill_in "Username", with: "FakeUser"
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
     fill_in "Password confirmation", with: "Password"
     click_on("Sign up")
-    expect(page).to have_content("Welcome! You have signed up successfully.")
+    @user = User.find(1)
+    visit user_confirmation_path(confirmation_token: @user.confirmation_token)
+    expect(page).to have_content("Your email address has been successfully confirmed.")
   end
 
   describe "failure cases" do

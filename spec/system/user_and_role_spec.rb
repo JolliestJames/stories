@@ -4,7 +4,7 @@ RSpec.describe "with users and roles" do
   let(:user) { create(:user) }
 
   it "allows a logged in user to view their profile page" do
-    confirm_and_log_in_as(user)
+    log_in_as(user)
     visit edit_profile_path
     expect(page).to have_content("Update account")
   end

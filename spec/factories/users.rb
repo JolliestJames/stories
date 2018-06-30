@@ -11,5 +11,9 @@ FactoryBot.define do
       email "non-unique@non-unique.com"
     end
 
+    after(:create) do |user|
+      user.confirm
+    end
+
   end
 end

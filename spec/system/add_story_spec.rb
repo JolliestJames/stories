@@ -4,7 +4,7 @@ RSpec.describe "adding a story", type: :system do
   let(:user) { create(:user) }
   
   xit "allows a user to create a story" do
-    confirm_and_log_in_as(user)
+    log_in_as(user)
     visit new_story_path
     fill_in "Name", with: "Fake Story"
     fill_in "Description", with: "Fake story description"

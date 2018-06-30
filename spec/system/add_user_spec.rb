@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "adding a user", type: :system do
 
   it "allows a user to sign up and confirm their email" do
-    visit new_user_registration_path
+    visit register_path
     fill_in "Username", with: "FakeUser"
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
@@ -18,7 +18,7 @@ RSpec.describe "adding a user", type: :system do
     let(:non_unique_user) { create(:user, :non_unique) }
 
     it "does not allow a user sign up with a non-unique username" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: non_unique_user.username
       fill_in "Email", with: "unique@unique.com"
       fill_in "Password", with: "Password"
@@ -28,7 +28,7 @@ RSpec.describe "adding a user", type: :system do
     end
 
     it "does not allow a user sign up with a non-unique email" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: "unique_username"
       fill_in "Email", with: non_unique_user.email
       fill_in "Password", with: "Password"
@@ -38,7 +38,7 @@ RSpec.describe "adding a user", type: :system do
     end
 
     it "does not allow a user to sign up without a username" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: ""
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: "Password"
@@ -48,7 +48,7 @@ RSpec.describe "adding a user", type: :system do
     end
 
     it "does not allow a user to sign up without an email address" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: "FakeUser"
       fill_in "Email", with: ""
       fill_in "Password", with: "Password"
@@ -58,7 +58,7 @@ RSpec.describe "adding a user", type: :system do
     end
 
     it "does not allow a user to sign up without a password" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: "FakeUser"
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: ""
@@ -68,7 +68,7 @@ RSpec.describe "adding a user", type: :system do
     end
 
     it "does not allow a user to sign up without a password confirmation" do
-      visit new_user_registration_path
+      visit register_path
       fill_in "Username", with: "FakeUser"
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: "Password"

@@ -1,0 +1,22 @@
+<% provide(:title, "All Stories") %>
+
+<h1>All Stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Owner</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr class="user-row" id="<%= dom_id(story) %>">
+        <td class="username"><%= story.name %></td>
+        <td class="email"><%= story.user %></td>
+        <td class="password"><%= story.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

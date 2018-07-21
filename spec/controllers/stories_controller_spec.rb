@@ -12,10 +12,19 @@ RSpec.describe StoriesController, type: :controller do
   end
 
   describe "POST create" do
+    let(:user) { create(:user) }
 
     it "returns http success" do
-      post :create
-      expect(response).to be_successful
+      sign_in(user)
+      post :create, {
+        params: { 
+          story: {
+            name: "Fake story",
+            description: "Fake description",
+          }
+        }
+      }
+      expect(response).to redirect_to :action => :index
     end
 
   end

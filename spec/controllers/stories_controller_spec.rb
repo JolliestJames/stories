@@ -14,7 +14,7 @@ RSpec.describe StoriesController, type: :controller do
   describe "POST create" do
     let(:user) { create(:user) }
 
-    it "returns http success" do
+    it "returns http redirect to stories index" do
       sign_in(user)
       post :create, {
         params: { 

@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   end
   authenticate :user do
     resources :stories, only: [:new, :create, :edit, :update, :destroy]
+    resources :memories, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :stories, only: [:index, :show]
+  resources :memories, only: [:index, :show]
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

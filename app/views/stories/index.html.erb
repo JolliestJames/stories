@@ -12,10 +12,10 @@
   </thead>
   <tbody>
     <% @stories.each do |story| %>
-      <tr class="user-row" id="<%= dom_id(story) %>">
-        <td class="username"><%= story.name %></td>
-        <td class="email"><%= story.user %></td>
-        <td class="password"><%= story.description %></td>
+      <tr class="story-row" id="<%= dom_id(story) %>">
+        <td class="name"><%= story.name %></td>
+        <td class="username"><%= story.user.username %></td>
+        <td class="description"><%= story.description %></td>
       </tr>
     <% end %>
   </tbody>

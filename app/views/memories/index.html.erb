@@ -1,0 +1,26 @@
+<% provide(:title, "All Memories") %>
+
+<h1>All Memories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Owner</td>
+      <td>Description</td>
+      <td>Image</td>
+      <td>Story</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @memories.each do |memory| %>
+      <tr class="memory-row" id="<%= dom_id(memory) %>">
+        <td class="name"><%= memory.name %></td>
+        <td class="username"><%= memory.user.username %></td>
+        <td class="description"><%= memory.description %></td>
+        <td class="image"><%= memory.image %></td>
+        <td class="story"><%= memory.story.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

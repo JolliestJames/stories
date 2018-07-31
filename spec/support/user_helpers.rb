@@ -7,6 +7,10 @@ module UserHelpers
     click_button("Log in")
   end
 
+  def save(object)
+    object.save
+  end
+
 end
 
 RSpec.configure do |c|

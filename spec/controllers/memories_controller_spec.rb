@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe MemoriesController, type: :controller do
 
   describe "GET new" do
+    let(:user) { create(:user) }
 
     it "returns http success" do
+      sign_in(user)
       get :new
       expect(response).to be_successful
     end
@@ -12,11 +14,11 @@ RSpec.describe MemoriesController, type: :controller do
   end
 
   describe "GET create" do
-    let(:story) { create(:story) }
+    let(:user) { create(:user) }
+    let(:story) { create(:story, user: user) }
 
     it "returns http redirect to index" do
-      @user = User.find(story.user_id)
-      sign_in(@user)
+      sign_in(user)
       post :create, {
         params: {
           memory: {

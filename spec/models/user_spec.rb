@@ -10,6 +10,7 @@ RSpec.describe User do
     specify { expect(user.last_name).to eq("Fake_last") }
     specify { expect(user.email).to eq("fake@fake.com") }
     specify { expect(user.password).to eq("fake_password") }
+    specify { expect(user.avatar).to be_an_instance_of(AvatarUploader) }
   end
 
   it "knows a user can add a story" do

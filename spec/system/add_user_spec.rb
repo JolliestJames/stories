@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "adding a user", type: :system do
+  let(:avatar) { Rails.root.join('spec/support/files/me.jpg') }
 
   it "allows a user to sign up and confirm their email" do
     visit register_path
@@ -8,6 +9,7 @@ RSpec.describe "adding a user", type: :system do
     fill_in "Email", with: "Fake@fake.com"
     fill_in "Password", with: "Password"
     fill_in "Password confirmation", with: "Password"
+    attach_file "Avatar", avatar
     click_on("Sign up")
     @user = User.find(1)
     visit user_confirmation_path(confirmation_token: @user.confirmation_token)
@@ -23,6 +25,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: "unique@unique.com"
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
+      attach_file "Avatar", avatar
       click_on("Sign up")
       expect(page).to have_content("Username has already been taken")
     end
@@ -33,6 +36,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: non_unique_user.email
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
+      attach_file "Avatar", avatar
       click_on("Sign up")
       expect(page).to have_content("Email has already been taken")
     end
@@ -43,8 +47,9 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
+      attach_file "Avatar", avatar
       click_on("Sign up")
-      expect(page).to have_selector(".new_user")
+      expect(page).to have_content("Username can't be blank")
     end
 
     it "does not allow a user to sign up without an email address" do
@@ -53,6 +58,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: ""
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: "Password"
+      attach_file "Avatar", avatar
       click_on("Sign up")
       expect(page).to have_selector(".new_user")
     end
@@ -63,6 +69,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: ""
       fill_in "Password confirmation", with: "Password"
+      attach_file "Avatar", avatar
       click_on("Sign up")
       expect(page).to have_selector(".new_user")
     end
@@ -73,6 +80,7 @@ RSpec.describe "adding a user", type: :system do
       fill_in "Email", with: "Fake@fake.com"
       fill_in "Password", with: "Password"
       fill_in "Password confirmation", with: ""
+      attach_file "Avatar", avatar
       click_on("Sign up")
       expect(page).to have_selector(".new_user")
     end

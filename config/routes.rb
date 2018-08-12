@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :memories
   devise_scope :user do
     get "/login" => "users/sessions#new"
-    get "/logout" => "users/sessions#destroy"
+    delete "/logout" => "users/sessions#destroy"
     get "/register" => "users/registrations#new"
     get "/edit_profile" => "users/registrations#edit"
   end

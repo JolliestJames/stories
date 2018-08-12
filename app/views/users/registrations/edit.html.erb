@@ -3,6 +3,20 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="image">
+    <%= f.label :avatar %><br />
+      <% if resource.avatar.profile.url.present? %>
+        <%= link_to resource.avatar.profile.url do %>
+          <%= image_tag resource.avatar.profile.url %><br />
+        <% end %>
+        <%= f.label :remove_avatar %><br />
+        <%= f.check_box :remove_avatar %><br />
+      <% end %>
+    <%= f.label :change_avatar %><br />
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

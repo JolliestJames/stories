@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+  
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +11,8 @@ class User < ApplicationRecord
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+  validates_integrity_of :avatar
+  validates_processing_of :avatar
   validates_presence_of :username, :email, :password
   validates_length_of :username, minimum: 1, maximum: 50, on: :create
   validates_length_of :email, minimum: 1, maximum: 255, on: :create

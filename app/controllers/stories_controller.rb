@@ -5,7 +5,6 @@ class StoriesController < ApplicationController
   end
 
   def create
-    
     @user_id = current_user_id
 
     @new_story = Story.new(
@@ -22,7 +21,6 @@ class StoriesController < ApplicationController
       @story = @new_story
       render :new
     end
-
   end
 
   def index

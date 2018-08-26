@@ -5,12 +5,10 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @user_id = current_user_id
-
     @new_story = Story.new(
       name: params[:story][:name],
       description: params[:story][:description],
-      user_id: @user_id
+      user_id: current_user_id
     )
 
     @new_story.save

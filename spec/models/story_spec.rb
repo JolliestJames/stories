@@ -35,5 +35,4 @@ RSpec.describe Story do
     story.add_memory(memory)
     expect(story.memories).not_to be_empty
   end
-
 end

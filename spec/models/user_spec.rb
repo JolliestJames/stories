@@ -19,7 +19,6 @@ RSpec.describe User do
   end
 
   describe "validations" do
-
     it "should validate username presence" do
       expect(user).to validate_presence_of(:username)
     end
@@ -68,7 +67,5 @@ RSpec.describe User do
     it "should validate email uniqueness" do
       expect(user).to validate_uniqueness_of(:email).case_insensitive
     end
-
   end
-
 end

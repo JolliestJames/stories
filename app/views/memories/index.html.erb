@@ -18,7 +18,13 @@
         <td class="name"><%= memory.name %></td>
         <td class="username"><%= memory.user.username %></td>
         <td class="description"><%= memory.description %></td>
-        <td class="image"><%= memory.image %></td>
+        <td class="image">
+        <% if memory.image.profile.url.present? %>
+          <%= link_to memory.image.profile.url do %>
+            <%= image_tag memory.image.profile.url %><br />
+          <% end %>
+        <% end %>
+        </td>
         <td class="story"><%= memory.story.name %></td>
       </tr>
     <% end %>

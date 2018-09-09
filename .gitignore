@@ -32,3 +32,6 @@
 
 # Ignore environment variables
 /config/initializers/app_environment_variables.rb
+
+# Ignore spring binstub
+/bin

@@ -23,5 +23,4 @@ class User < ApplicationRecord
   def add_story(story)
     self.stories << story
   end
-
 end

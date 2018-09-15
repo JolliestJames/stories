@@ -20,7 +20,7 @@ This should dramatically reduce the runtime of the test suite, which you can run
 
 ```spring rspec```
 
-The following resources should be valuable if you want tolearn more about how to use rspec/spring:
+The following resources should be valuable if you want to learn more about how to use rspec/spring:
 
 - http://rspec.info/documentation/
 - https://github.com/rails/spring

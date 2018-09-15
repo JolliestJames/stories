@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Story do
   let(:story) { build(:story) }
-  let(:memory) { build(:memory) }
+  let(:memory) { Memory.new }
 
   describe "initialization" do
     specify { expect(story.name).to eq("fake_story") }

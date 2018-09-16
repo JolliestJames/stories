@@ -25,8 +25,14 @@ class StoriesController < ApplicationController
     @stories = Story.all
   end
 
+  def show
+    @story = Story.find(params[:id])
+    @memories = @story.memories.sort_by { |memory| memory.date }
+  end
+
+  private
+
   def current_user_id
     current_user.id
   end
-  
 end

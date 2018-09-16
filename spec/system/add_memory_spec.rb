@@ -5,7 +5,7 @@ RSpec.describe "adding a memory", type: :system do
   let(:story) { create(:story, user: user) }
   let(:photo) { Rails.root.join('spec/support/files/me.jpg') }
 
-  it "allows a user to create a story" do
+  it "allows a user to create a memory" do
     log_in_as(user)
     save story
     visit new_memory_path
@@ -18,5 +18,4 @@ RSpec.describe "adding a memory", type: :system do
     visit memories_path
     expect(page).to have_content("Fake Memory")
   end
-
 end

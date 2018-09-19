@@ -1,0 +1,16 @@
+<% provide(:title, @story.name) %>
+
+<h1>
+  <%= @story.name %>
+</h1>
+<h2>
+  <%= @story.description %>
+</h2>
+
+<div>
+  <% @memories.each do |memory| %>
+    <% if memory.image.profile.url.present? %>
+      <%= image_tag memory.image.profile.url %><br/>
+    <% end %>  
+  <% end %>
+</div>

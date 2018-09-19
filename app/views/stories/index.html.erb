@@ -17,7 +17,9 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr class="story-row" id="<%= dom_id(story) %>">
-        <td class="name"><%= story.name %></td>
+        <td class="name">
+          <%= link_to story.name, controller: "stories", action: "show", id:story.id %>
+        </td>
         <td class="username"><%= story.user.username %></td>
         <td class="description"><%= story.description %></td>
       </tr>

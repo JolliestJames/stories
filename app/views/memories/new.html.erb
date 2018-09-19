@@ -4,19 +4,19 @@
 
 <%= form_for(@memory) do |f| %>
   <%= f.label(:name) %>
-  <%= f.text_field(:name) %>
+  <%= f.text_field :name, :required => true %>
   <br />
   <%= f.label(:description) %>
-  <%= f.text_field(:description) %>
+  <%= f.text_field :description, :required => true %>
   <br />
   <div class="field">
     <%= f.label :image %><br />
-    <%= f.file_field :image %>
+    <%= f.file_field :image, :required => true %>
     <%= f.hidden_field :image_cache %>
   </div>
   <br />
   <%= f.label(:date) %>
-  <%= f.date_field(:date) %>
+  <%= f.date_field :date, :required => true %>
   <br />
   <%= f.label(:story_id) %>
   <%= f.select :story_id, options_from_collection_for_select(Story.where(user_id: current_user.id), 'id', 'name') %>

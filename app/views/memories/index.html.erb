@@ -2,6 +2,10 @@
 
 <h1>All Memories</h1>
 
+<% if current_user != nil %>
+  <%= link_to "Add Memory", new_memory_path, class: "btn btn-lg btn-primary" %>
+<% end %>
+
 <table>
   <thead>
     <tr>

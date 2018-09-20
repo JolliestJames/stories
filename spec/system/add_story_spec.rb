@@ -36,4 +36,14 @@ RSpec.describe "adding a story", type: :system do
     expect(page).to have_content("You need to sign in or sign up before continuing")  
   end
 
+  it "allows a user to add a story from the stories path while logged in" do
+    log_in_as(user)
+    visit stories_path
+    expect(page).to have_content("Add Story")
+  end
+
+  it "does not allow a user to add a story from the stories path while not logged in" do
+    visit stories_path
+    expect(page).not_to have_content("Add Story")
+  end
 end

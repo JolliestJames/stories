@@ -18,4 +18,15 @@ RSpec.describe "adding a memory", type: :system do
     visit memories_path
     expect(page).to have_content("Fake Memory")
   end
+
+  it "allows a user to add a memory from the memories path while logged in" do
+    log_in_as(user)
+    visit memories_path
+    expect(page).to have_content("Add Memory")
+  end
+
+  it "does not allow a user to add a memory from the memories path while not logged in" do
+    visit memories_path
+    expect(page).not_to have_content("Add Memory")
+  end
 end

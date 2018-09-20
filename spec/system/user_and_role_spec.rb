@@ -11,7 +11,7 @@ RSpec.describe "with users and roles" do
 
   it "does not allow a logged in user to view their profile page" do
     visit edit_profile_path
-    expect(page).to have_content("")
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
-    
+
 end

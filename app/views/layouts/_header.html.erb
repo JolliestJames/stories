@@ -3,16 +3,16 @@
     <%= link_to "Stories", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Home', root_path, :class => 'navbar-link' %></li>
-        <li><%= link_to 'Stories', stories_path, :class => 'navbar-link' %></li>
-        <li><%= link_to 'Memories', memories_path, :class => 'navbar-link' %></li>
+        <li><%= link_to 'Home', root_path, id: 'link' %></li>
+        <li><%= link_to 'Stories', stories_path, id: 'link' %></li>
+        <li><%= link_to 'Memories', memories_path, id: 'link' %></li>
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.username %></strong>.
-          <li><%= link_to 'Edit profile', edit_profile_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Logout", logout_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Edit profile', edit_profile_path, id: 'link' %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete, id: 'link'  %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Register", register_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Log in", login_path, id: 'link' %></li>
+          <li><%= link_to "Register", register_path, id: 'link' %></li>
         <% end %>
       </ul>
     </nav>

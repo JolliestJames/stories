@@ -6,10 +6,10 @@ class Memory < ApplicationRecord
 
   validates_integrity_of :image
   validates_processing_of :image
-  validates_presence_of :name, :date, :image, :description
+  validates_presence_of :name, :date, :image
   validates_length_of :name, minimum: 1, maximum: 255, on: :create
-  validates_length_of :description, minimum: 1, maximum: 255, on: :create
-  
+  validates_length_of :description, maximum: 1000, on: :create
+
   def update_description(description)
     self.description = description
   end

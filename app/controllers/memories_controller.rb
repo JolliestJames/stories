@@ -27,6 +27,12 @@ class MemoriesController < ApplicationController
     @memories = Memory.all
   end
 
+  private
+
+  def current_user_id
+    current_user.id
+  end
+
   def date(params)
     params[:memory][:date].blank? ? Date.today : params[:memory][:date]
   end
@@ -37,11 +43,5 @@ class MemoriesController < ApplicationController
 
   def description(params)
     params[:memory][:description].blank? ? nil : params[:memory][:description]
-  end
-
-  private
-
-  def current_user_id
-    current_user.id
   end
 end

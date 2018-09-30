@@ -24,10 +24,6 @@ RSpec.describe Memory do
       expect(memory).to validate_presence_of(:image)
     end
 
-    it "should validate description presence" do
-      expect(memory).to validate_presence_of(:description)
-    end
-
     it "should validate date presence" do
       expect(memory).to validate_presence_of(:date)
     end
@@ -41,8 +37,7 @@ RSpec.describe Memory do
 
     it "should validate description length" do
       expect(memory).to validate_length_of(:description).
-        is_at_least(1).
-        is_at_most(255).
+        is_at_most(1000).
         on(:create)
     end
   end

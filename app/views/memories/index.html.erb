@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <td>Name</td>
+      <td>Date</td>
       <td>Owner</td>
       <td>Description</td>
       <td>Image</td>
@@ -20,6 +21,7 @@
     <% @memories.each do |memory| %>
       <tr class="memory-row" id="<%= dom_id(memory) %>">
         <td class="name"><%= memory.name %></td>
+        <td class="date"><%= memory.date %></td>
         <td class="username"><%= memory.user.username %></td>
         <td class="description"><%= memory.description %></td>
         <td class="image">

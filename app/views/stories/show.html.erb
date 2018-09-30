@@ -9,8 +9,11 @@
 
 <div>
   <% @memories.each do |memory| %>
+    <h4><%= memory.date %></h4>
     <% if memory.image.profile.url.present? %>
-      <%= image_tag memory.image.profile.url %><br/>
-    <% end %>  
+      <%= link_to memory.image.profile.url do %>
+        <%= image_tag memory.image.profile.url %><br/>
+      <% end %>  
+    <% end %>
   <% end %>
 </div>
